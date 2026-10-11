@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Clash Cache - Module</title>
+</head>
+<body>
+  <p style="font-family:monospace; color:#5a6e3d;">
+    💾 Clash Cache Module — Loaded
+  </p>
+
+  <script src="src/cache.js"></script>
+  <script src="src/resource-loader.js"></script>
+  <script src="src/save-system.js"></script>
+  <script>
+    // تهيئة عامة للنظام
+    window.COA = window.COA || {};
+    window.COA.cache = new CoaCache();
+    window.COA.loader = new ResourceLoader(window.COA.cache);
+    window.COA.saves = new SaveSystem(window.COA.cache);
+
+    console.log('✅ Cache system ready', {
+      size: window.COA.cache.size() + ' bytes'
+    });
+  </script>
+</body>
+</html>
